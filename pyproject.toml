@@ -46,6 +46,7 @@ dependencies = [
     "tree-sitter-c-sharp>=0.20.0",
     "tree-sitter-typescript>=0.20.0",
     "typer>=0.20.1",
+    "pathspec>=0.12.0",
 ]
 
 [project.optional-dependencies]
@@ -121,7 +122,7 @@ addopts = [
     "--cov-report=html",
     "--cov-report=xml"
 ]
-testpaths = ["test"]
+testpaths = ["tests", "test"]
 python_files = ["test_*.py", "*_test.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]

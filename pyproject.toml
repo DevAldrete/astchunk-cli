@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "stump"
+name = "stump-cli"
 version = "0.1.0"
 description = "Stump: AST-aware code chunking (tree-sitter). Derived from ASTChunk; cite the cAST paper for research."
 readme = "README.md"

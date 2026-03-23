@@ -14,7 +14,7 @@ from typing import Iterable, List, Optional, Tuple
 
 from pathspec import PathSpec
 
-# Extension -> astchunk language name
+# Extension -> Stump language name (internal parser id)
 EXT_TO_LANG = {
     ".py": "python",
     ".java": "java",

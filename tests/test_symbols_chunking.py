@@ -2,7 +2,7 @@
 
 import pytest
 
-from astchunk import ASTChunkBuilder
+from stump import ASTChunkBuilder
 
 
 def test_default_metadata_includes_symbols_single_function() -> None:

@@ -8,14 +8,14 @@ import tree_sitter_c_sharp as tscsharp
 import tree_sitter_typescript as tstypescript
 import pyrsistent
 
-from astchunk.astnode import ASTNode
-from astchunk.astchunk import ASTChunk
-from astchunk.preprocessing import (
+from stump.astnode import ASTNode
+from stump.astchunk import ASTChunk
+from stump.preprocessing import (
     ByteRange,
     preprocess_nws_count,
     get_nws_count,
 )
-from astchunk.symbols import (
+from stump.symbols import (
     DefinitionSpan,
     collect_definitions,
     is_definition_node,

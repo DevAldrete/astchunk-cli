@@ -3,7 +3,7 @@
 Quick test to verify that non whitespace count functions work correctly.
 """
 
-from astchunk import (
+from stump import (
     ByteRange,
     preprocess_nws_count,
     get_nws_count,

@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "astchunk"
+name = "stump"
 version = "0.1.0"
-description = "AST-based code chunking library for improved code analysis and processing"
+description = "Stump: AST-aware code chunking (tree-sitter). Derived from ASTChunk; cite the cAST paper for research."
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
@@ -17,9 +17,9 @@ authors = [
     {name = "Sherry Tongshuang Wu", email = "sherryw@andrew.cmu.edu"},
 ]
 maintainers = [
-    {name = "Yilin (Jason) Zhang", email = "jasonzh3@andrew.cmu.edu"},
+    {name = "DevAldrete"},
 ]
-keywords = ["ast", "chunking", "code analysis", "code indexing", "code retrieval", "code generation", "tree-sitter", "parsing"]
+keywords = ["stump", "ast", "chunking", "code analysis", "code indexing", "code retrieval", "code generation", "tree-sitter", "parsing", "astchunk"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
@@ -75,10 +75,12 @@ publish = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yilinjz/astchunk"
+Homepage = "https://github.com/DevAldrete/stump"
+Repository = "https://github.com/DevAldrete/stump"
+Upstream = "https://github.com/yilinjz/astchunk"
 
 [project.scripts]
-astchunk = "astchunk.cli:main"
+stump = "stump.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -87,7 +89,7 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.setuptools.package-data]
-astchunk = ["py.typed"]
+stump = ["py.typed"]
 
 # Black configuration
 [tool.black]
@@ -113,7 +115,7 @@ extend-exclude = '''
 profile = "black"
 multi_line_output = 3
 line_length = 88
-known_first_party = ["astchunk"]
+known_first_party = ["stump"]
 
 # pytest configuration
 [tool.pytest.ini_options]
@@ -121,7 +123,7 @@ minversion = "7.0"
 addopts = [
     "--strict-markers",
     "--strict-config",
-    "--cov=astchunk",
+    "--cov=stump",
     "--cov-report=term-missing",
     "--cov-report=html",
     "--cov-report=xml"
@@ -156,7 +158,7 @@ ignore_missing_imports = true
 
 # Coverage configuration
 [tool.coverage.run]
-source = ["src/astchunk"]
+source = ["src/stump"]
 omit = [
     "*/tests/*",
     "*/test_*",

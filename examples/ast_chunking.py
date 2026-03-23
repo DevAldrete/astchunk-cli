@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
 AST chunking script for example source code.
-Uses the ASTChunkBuilder class from src/astchunk/astchunk_builder.py with max_chunk_size = 2000.
+Uses the ASTChunkBuilder class from src/stump/astchunk_builder.py with max_chunk_size = 2000.
 """
 
-from astchunk import ASTChunkBuilder
+from stump import ASTChunkBuilder
 
 
 def main():

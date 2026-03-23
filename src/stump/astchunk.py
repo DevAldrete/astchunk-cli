@@ -1,8 +1,8 @@
 from typing import List, Optional
 
-from astchunk.astnode import ASTNode
-from astchunk.preprocessing import ByteRange, get_nws_count_direct
-from astchunk.symbols import DefinitionSpan, symbols_overlapping_chunk
+from stump.astnode import ASTNode
+from stump.preprocessing import ByteRange, get_nws_count_direct
+from stump.symbols import DefinitionSpan, symbols_overlapping_chunk
 
 
 class ASTChunk():

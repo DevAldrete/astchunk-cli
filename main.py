@@ -10,7 +10,7 @@ _src = _root / "src"
 if _src.is_dir():
     sys.path.insert(0, str(_src))
 
-from astchunk.cli import app
+from stump.cli import app
 
 if __name__ == "__main__":
     app()

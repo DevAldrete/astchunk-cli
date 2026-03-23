@@ -1,0 +1,14 @@
+Stump
+=====
+
+Copyright (c) 2026 DevAldrete
+
+Stump is derived from ASTChunk (Copyright (c) 2025 Yilin (Jason) Zhang and
+contributors), available at https://github.com/yilinjz/astchunk
+
+The research behind the original method is described in the cAST paper; please
+cite it when using this software for academic work (see README.md for BibTeX).
+
+Core algorithms, APIs, and the original MIT license terms remain attributable to
+the ASTChunk authors. Stump-specific changes are Copyright (c) DevAldrete under
+the same MIT License (see LICENSE).

@@ -1,8 +1,9 @@
 """
-ASTChunk - AST-based code chunking library.
+Stump — AST-based code chunking (tree-sitter).
 
-This package provides tools for intelligently chunking source code
-while preserving syntactic structure and semantic boundaries.
+Derived from ASTChunk (Yilin Zhang et al.); see NOTICE and README for attribution
+and how to cite the cAST paper. Public API types keep their original names
+(e.g. ``ASTChunk``, ``ASTChunkBuilder``) for compatibility with the upstream design.
 """
 
 from .astchunk_builder import ASTChunkBuilder

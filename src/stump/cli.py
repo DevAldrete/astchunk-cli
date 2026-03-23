@@ -5,14 +5,14 @@ from typing import List, Optional
 
 import typer as ty
 
-from astchunk import ASTChunkBuilder
-from astchunk.repo_scan import (
+from stump import ASTChunkBuilder
+from stump.repo_scan import (
     collect_source_files,
     load_gitignore_spec,
     resolve_ignore_root,
 )
 
-app = ty.Typer(help="AST-based code chunking CLI")
+app = ty.Typer(help="Stump — AST chunking CLI (tree-sitter)")
 
 SUPPORTED_LANGUAGES = frozenset({"python", "java", "csharp", "typescript"})
 CHUNK_STRATEGIES = frozenset({"size", "definition", "hybrid"})
@@ -34,7 +34,7 @@ def _write_chunk_output(
     else:
         lines = []
         lines.append(
-            f"AST Chunking Results (max {max_chunk_size} non-whitespace chars per chunk)"
+            f"Stump chunking results (max {max_chunk_size} non-whitespace chars per chunk)"
         )
         lines.append("=" * 80)
         lines.append("")

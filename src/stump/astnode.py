@@ -1,6 +1,6 @@
 import tree_sitter as ts
 
-from astchunk.preprocessing import ByteRange
+from stump.preprocessing import ByteRange
 
 
 class ASTNode():

@@ -1,7 +1,7 @@
 """Tests for repo scanning and gitignore filtering."""
 from pathlib import Path
 
-from astchunk.repo_scan import (
+from stump.repo_scan import (
     collect_source_files,
     load_gitignore_spec,
     resolve_ignore_root,
@@ -64,14 +64,14 @@ def test_resolve_ignore_root_override(tmp_path: Path) -> None:
 
 
 def test_path_under_git_dir_segment() -> None:
-    from astchunk.repo_scan import _path_under_git_dir
+    from stump.repo_scan import _path_under_git_dir
 
     assert _path_under_git_dir(Path("/proj/.git/config"))
     assert not _path_under_git_dir(Path("/proj/src/main.py"))
 
 
 def test_chunk_metadata_filepath_absolute(tmp_path: Path) -> None:
-    from astchunk import ASTChunkBuilder
+    from stump import ASTChunkBuilder
 
     src = tmp_path / "mod.py"
     src.write_text("def f():\n    return 1\n", encoding="utf-8")

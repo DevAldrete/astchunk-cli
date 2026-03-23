@@ -1,8 +1,13 @@
-# ASTChunk
+# Stump
 
-This repository contains code for AST-based code chunking that preserves syntactic structure and semantic boundaries. ASTChunk intelligently divides source code into meaningful chunks while respecting the Abstract Syntax Tree (AST) structure, making it ideal for code analysis, documentation generation, and machine learning applications.
+**Stump** is an AST-aware code chunking tool and library: it splits source using **tree-sitter** parse trees so chunks respect syntactic boundaries. The name is a nod to what is left when you “cut” a syntax tree into pieces.
 
-This work is described in the following paper:  
+This project is **actively developed by [DevAldrete](https://github.com/DevAldrete)** on top of the **ASTChunk** research codebase. Original algorithms and the scientific credit belong to the ASTChunk authors; Stump adds its own packaging, CLI, and ongoing changes. See **[NOTICE](NOTICE)** and **[LICENSE](LICENSE)** for copyright and derivative-work attribution.
+
+### Cite the original research
+
+The method is described in the **cAST** paper. Please cite it when you use Stump in academic work:
+
 >[cAST: Enhancing Code Retrieval-Augmented Generation with Structural Chunking via Abstract Syntax Tree](https://arxiv.org/abs/2506.15655)    
 > Yilin Zhang, Xinran Zhao, Zora Zhiruo Wang, Chenyang Yang, Jiayi Wei, Tongshuang Wu
 <!--
@@ -45,28 +50,32 @@ Bibtex for citations:
 
 ## Installation
 
-From PyPI:
+From PyPI (after you publish the `stump` package):
 ```bash
-pip install astchunk
+pip install stump
 ```
 
 From source:
 ```bash
-git clone git@github.com:yilinjz/astchunk.git
-cd astchunk  # or your clone directory name
+git clone https://github.com/DevAldrete/stump.git
+cd stump
 pip install -e .
 ```
 
-After install, the CLI is available as `astchunk` (see `astchunk --help`). You can also run from a clone without installing by using `python main.py` from the repository root.
+If your GitHub repository is still named differently (for example `astchunk-cli`), use that clone URL and directory name, and align `Homepage` / `Repository` in `pyproject.toml` with the real URL.
+
+After install, the CLI is **`stump`** (`stump --help`). You can also run **`python main.py`** from the repository root when dependencies are available (the shim prepends `src/` for imports).
+
+**Upstream library:** the original project remains at [github.com/yilinjz/astchunk](https://github.com/yilinjz/astchunk) and may publish under a different PyPI name; this line is independent.
 
 ### Docker
 
 Build and run the CLI in a container (mount your code to chunk a directory on the host):
 
 ```bash
-docker build -t astchunk .
-docker run --rm astchunk --help
-docker run --rm -v "$PWD":/work -w /work astchunk chunk-repo . -o /work/chunks.json
+docker build -t stump .
+docker run --rm stump --help
+docker run --rm -v "$PWD":/work -w /work stump chunk-repo . -o /work/chunks.json
 ```
 
 ### Building wheels for PyPI
@@ -79,7 +88,7 @@ twine check dist/*
 # twine upload dist/*
 ```
 
-ASTChunk depends on [tree-sitter](https://tree-sitter.github.io/tree-sitter/) for parsing. The required language parsers are automatically installed:
+Stump depends on [tree-sitter](https://tree-sitter.github.io/tree-sitter/) for parsing. The required language parsers are installed with the package:
 
 ```bash
 # Core dependencies (automatically installed)
@@ -106,7 +115,7 @@ CLI: pass `--chunk-strategy size|definition|hybrid` to `chunk` and `chunk-repo`.
 ## Quick Start
 
 ```python
-from astchunk import ASTChunkBuilder
+from stump import ASTChunkBuilder
 
 # Your source code
 code = """
@@ -264,7 +273,7 @@ swebench_builder = ASTChunkBuilder(
 ### Preprocessing Functions
 
 ```python
-from astchunk.preprocessing import preprocess_nws_count, get_nws_count, ByteRange
+from stump.preprocessing import preprocess_nws_count, get_nws_count, ByteRange
 
 # Preprocess code for efficient size calculation
 code_bytes = code.encode('utf-8')
@@ -278,8 +287,8 @@ char_count = get_nws_count(nws_cumsum, byte_range)
 ### Direct AST Processing
 
 ```python
-from astchunk.astnode import ASTNode
-from astchunk.astchunk import ASTChunk
+from stump.astnode import ASTNode
+from stump.astchunk import ASTChunk
 
 # Work directly with AST nodes and chunks for custom processing
 # (See API documentation for detailed usage)
@@ -300,7 +309,7 @@ We welcome contributions! Please see our [contributing guidelines](<CONTRIBUTING
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+[MIT License](LICENSE). Attribution for the original ASTChunk work and Stump changes is summarized in [NOTICE](NOTICE); the full legal text is in `LICENSE`.
 
 ## Version
 
